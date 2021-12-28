@@ -1,0 +1,41 @@
+Installation of Hadoop
+
+sudo apt update
+$sudo apt install openjdk-8-jdk openjdk-8-jre
+$ java -version (to get version)
+
+sudo apt install openssh-server openssh-client -y
+
+
+sudo adduser hdoop
+su - hdoop
+
+
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+
+
+chmod 0600 ~/.ssh/authorized_keys
+
+ssh localhost
+
+
+Go to apache official website  and download apache hadoop 3.3.1 version binary64 ----> backupsites copy link 
+In terminal 
+  
+$wget  (paste link) https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1-aarch64.tar.gz
+$ sudo nano .bashrc
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export HADOOP_HOME=/home/hadoop-3.3.1
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin
+
+
